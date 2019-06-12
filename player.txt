@@ -87,13 +87,21 @@
 
 
 
- ngOnInit() {
+ngOnInit() {
     this.ps.getAllPlayers().subscribe((res) => {
       console.log(res)
-      this.players=res
+      this.players = res
     })
+    let i = parseInt(this.acr.snapshot.params["id"])
+    this.ps.getPlayerById(i).subscribe((data) => {
+      this.players = data
+      console.log(data);
+    })
+
   }
 
+
+ { path: 'showAllPlayers/:id', component: ShowAllPlayersComponent },
 
 
 ========================================================================================================
